@@ -1,4 +1,6 @@
-# Social Collaboration Framework for District-Level Governance
+# Transitions: Algorithms for Social Change
+
+## Social Collaboration Framework for District-Level Governance
 
 > *A practical grammar of social collaboration that brings villages and towns together using economics, enabling every district to own its destiny through automated governance systems that plug gaps in day-to-day help.*
 
@@ -298,6 +300,6 @@ To create a replicable model where every district can achieve self-governance th
 **Framework Status**: Conceptual design ready for pilot implementation with autonomous capabilities  
 **Last Updated**: January 2025  
 **License**: Open for public use and adaptation  
-**GitHub Repository**: https://github.com/abhishektiwari/social-collaboration-framework *(coming soon)*
+**GitHub Repository**: https://github.com/tenhundredtrees/transitions
 
 *This framework represents a practical approach to decentralized governance that respects existing social structures while enabling organic growth and AI-enhanced coordination through autonomous district guardian systems.*
