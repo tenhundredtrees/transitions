@@ -165,7 +165,13 @@ jobs:
                   
                   <div class="maps-grid">
                       <div class="map-card">
-                          <h3>🗄️ Database-Powered Map</h3>
+                          <h3>🗄️ Database-Powered Map (Fixed)</h3>
+                          <p>CORS-free embedded database map with 10 villages. Works locally and on GitHub Pages.</p>
+                          <a href="database-powered-villages-map-fixed.html" class="map-link">View Fixed Map</a>
+                      </div>
+                      
+                      <div class="map-card">
+                          <h3>🗄️ Database-Powered Map (Original)</h3>
                           <p>Scalable map powered by JSON database with 25+ villages. Best for production use.</p>
                           <a href="database-powered-villages-map.html" class="map-link">View Database Map</a>
                       </div>
