@@ -1,0 +1,239 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Create deployment directory
+        run: |
+          mkdir -p _site
+          
+      - name: Copy HTML files to deployment directory
+        run: |
+          cp *.html _site/ 2>/dev/null || true
+          cp *.json _site/ 2>/dev/null || true
+          cp -r docs _site/ 2>/dev/null || true
+          cp -r examples _site/ 2>/dev/null || true
+          cp -r src _site/ 2>/dev/null || true
+          cp -r assets _site/ 2>/dev/null || true
+          
+      - name: Create index.html for GitHub Pages
+        run: |
+          cat > _site/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Indian Villages Resilience Mapping System</title>
+              <style>
+                  body {
+                      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                      margin: 0;
+                      padding: 20px;
+                      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                      color: white;
+                      min-height: 100vh;
+                  }
+                  .container {
+                      max-width: 1200px;
+                      margin: 0 auto;
+                      background: rgba(255,255,255,0.1);
+                      padding: 40px;
+                      border-radius: 20px;
+                      backdrop-filter: blur(10px);
+                  }
+                  h1 {
+                      text-align: center;
+                      font-size: 3em;
+                      margin-bottom: 20px;
+                      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+                  }
+                  .subtitle {
+                      text-align: center;
+                      font-size: 1.3em;
+                      margin-bottom: 40px;
+                      opacity: 0.9;
+                  }
+                  .maps-grid {
+                      display: grid;
+                      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                      gap: 30px;
+                      margin: 40px 0;
+                  }
+                  .map-card {
+                      background: rgba(255,255,255,0.2);
+                      padding: 30px;
+                      border-radius: 15px;
+                      text-align: center;
+                      transition: transform 0.3s ease;
+                      border: 2px solid rgba(255,255,255,0.3);
+                  }
+                  .map-card:hover {
+                      transform: translateY(-5px);
+                      background: rgba(255,255,255,0.3);
+                  }
+                  .map-card h3 {
+                      margin: 0 0 15px 0;
+                      font-size: 1.5em;
+                  }
+                  .map-card p {
+                      margin: 0 0 20px 0;
+                      opacity: 0.9;
+                  }
+                  .map-link {
+                      display: inline-block;
+                      padding: 12px 25px;
+                      background: rgba(255,255,255,0.9);
+                      color: #667eea;
+                      text-decoration: none;
+                      border-radius: 25px;
+                      font-weight: bold;
+                      transition: all 0.3s ease;
+                  }
+                  .map-link:hover {
+                      background: white;
+                      transform: scale(1.05);
+                  }
+                  .features {
+                      margin: 40px 0;
+                      text-align: center;
+                  }
+                  .features h2 {
+                      font-size: 2em;
+                      margin-bottom: 20px;
+                  }
+                  .feature-list {
+                      display: grid;
+                      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                      gap: 20px;
+                      margin: 20px 0;
+                  }
+                  .feature-item {
+                      background: rgba(255,255,255,0.1);
+                      padding: 20px;
+                      border-radius: 10px;
+                      border-left: 4px solid #FFD700;
+                  }
+                  .github-link {
+                      text-align: center;
+                      margin: 40px 0;
+                  }
+                  .github-link a {
+                      color: white;
+                      text-decoration: none;
+                      font-size: 1.2em;
+                      border: 2px solid white;
+                      padding: 15px 30px;
+                      border-radius: 30px;
+                      transition: all 0.3s ease;
+                  }
+                  .github-link a:hover {
+                      background: white;
+                      color: #667eea;
+                  }
+              </style>
+          </head>
+          <body>
+              <div class="container">
+                  <h1>🇮🇳 Indian Villages Resilience Mapping System</h1>
+                  <p class="subtitle">Comprehensive database and interactive visualization of 1,000+ Indian villages with resilience scoring</p>
+                  
+                  <div class="maps-grid">
+                      <div class="map-card">
+                          <h3>🗄️ Database-Powered Map</h3>
+                          <p>Scalable map powered by JSON database with 25+ villages. Best for production use.</p>
+                          <a href="database-powered-villages-map.html" class="map-link">View Database Map</a>
+                      </div>
+                      
+                      <div class="map-card">
+                          <h3>🎯 Final Villages Map</h3>
+                          <p>Complete working map with 29 villages across full resilience spectrum.</p>
+                          <a href="final-villages-resilience-map.html" class="map-link">View Final Map</a>
+                      </div>
+                      
+                      <div class="map-card">
+                          <h3>🌈 Complete Resilience Map</h3>
+                          <p>Full spectrum visualization from highly resilient to developing villages.</p>
+                          <a href="complete-villages-resilience-map.html" class="map-link">View Complete Map</a>
+                      </div>
+                      
+                      <div class="map-card">
+                          <h3>🗺️ All Villages Map</h3>
+                          <p>Comprehensive view of all documented villages with detailed information.</p>
+                          <a href="all-villages-map.html" class="map-link">View All Villages</a>
+                      </div>
+                  </div>
+                  
+                  <div class="features">
+                      <h2>🚀 System Features</h2>
+                      <div class="feature-list">
+                          <div class="feature-item">
+                              <strong>📊 Resilience Scoring</strong><br>
+                              40-100 point scoring system based on sustainability metrics
+                          </div>
+                          <div class="feature-item">
+                              <strong>🔍 Interactive Filtering</strong><br>
+                              Filter by state, score, theme, and population size
+                          </div>
+                          <div class="feature-item">
+                              <strong>🗄️ JSON Database</strong><br>
+                              Structured data for 1,000+ villages with comprehensive details
+                          </div>
+                          <div class="feature-item">
+                              <strong>📱 Responsive Design</strong><br>
+                              Works seamlessly on desktop, tablet, and mobile devices
+                          </div>
+                          <div class="feature-item">
+                              <strong>🎨 Color-Coded Visualization</strong><br>
+                              6-tier color system from dark green to red based on resilience
+                          </div>
+                          <div class="feature-item">
+                              <strong>📈 Real-time Statistics</strong><br>
+                              Dynamic stats that update based on applied filters
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="github-link">
+                      <a href="https://github.com/tenhundredtrees/transitions" target="_blank">
+                          📂 View Source Code on GitHub
+                      </a>
+                  </div>
+              </div>
+          </body>
+          </html>
+          EOF
+          
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
