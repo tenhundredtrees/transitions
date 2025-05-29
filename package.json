@@ -1,0 +1,29 @@
+{
+  "name": "indian-villages-resilience-mapping",
+  "version": "1.0.0",
+  "description": "Comprehensive mapping and analysis system for Indian village resilience scoring",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 3000",
+    "build": "echo 'No build step required for static site'",
+    "serve": "python -m http.server"
+  },
+  "keywords": [
+    "india",
+    "villages",
+    "resilience",
+    "mapping",
+    "sustainability",
+    "rural-development"
+  ],
+  "author": "Ten Hundred Trees",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tenhundredtrees/transitions.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

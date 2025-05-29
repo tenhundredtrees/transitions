@@ -1,0 +1,55 @@
+{
+  "version": 2,
+  "name": "indian-villages-resilience-mapping",
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.json",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/complete-1000-villages-map.html"
+    },
+    {
+      "src": "/map",
+      "dest": "/complete-1000-villages-map.html"
+    },
+    {
+      "src": "/database",
+      "dest": "/database-powered-villages-map-fixed.html"
+    },
+    {
+      "src": "/api/villages",
+      "dest": "/india-villages-map-data.json"
+    }
+  ],
+  "headers": [
+    {
+      "source": "*.json",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods", 
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ]
+}
