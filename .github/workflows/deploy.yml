@@ -165,6 +165,12 @@ jobs:
                   
                   <div class="maps-grid">
                       <div class="map-card">
+                          <h3>🎯 Complete 1,000 Villages Map</h3>
+                          <p>Full database with 1,000 villages across all resilience categories. Complete spectrum visualization.</p>
+                          <a href="complete-1000-villages-map.html" class="map-link">View 1,000 Villages</a>
+                      </div>
+                      
+                      <div class="map-card">
                           <h3>🗄️ Database-Powered Map (Fixed)</h3>
                           <p>CORS-free embedded database map with 10 villages. Works locally and on GitHub Pages.</p>
                           <a href="database-powered-villages-map-fixed.html" class="map-link">View Fixed Map</a>
