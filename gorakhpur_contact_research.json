@@ -1,0 +1,98 @@
+{
+  "district": "Gorakhpur",
+  "state": "Uttar Pradesh",
+  "research_date": "2025-05-30",
+  "government_contacts": {},
+  "block_offices": {
+    "Gorakhpur": {
+      "BDO_Office": "Block Development Office, Gorakhpur",
+      "Estimated_Contact": "Will need to call district office for Gorakhpur specific contacts",
+      "Search_Status": "Requires manual verification"
+    },
+    "Gola": {
+      "BDO_Office": "Block Development Office, Gola",
+      "Estimated_Contact": "Will need to call district office for Gola specific contacts",
+      "Search_Status": "Requires manual verification"
+    },
+    "Sahjanwa": {
+      "BDO_Office": "Block Development Office, Sahjanwa",
+      "Estimated_Contact": "Will need to call district office for Sahjanwa specific contacts",
+      "Search_Status": "Requires manual verification"
+    },
+    "Chauri Chaura": {
+      "BDO_Office": "Block Development Office, Chauri Chaura",
+      "Estimated_Contact": "Will need to call district office for Chauri Chaura specific contacts",
+      "Search_Status": "Requires manual verification"
+    },
+    "Khajni": {
+      "BDO_Office": "Block Development Office, Khajni",
+      "Estimated_Contact": "Will need to call district office for Khajni specific contacts",
+      "Search_Status": "Requires manual verification"
+    },
+    "Bansgaon": {
+      "BDO_Office": "Block Development Office, Bansgaon",
+      "Estimated_Contact": "Will need to call district office for Bansgaon specific contacts",
+      "Search_Status": "Requires manual verification"
+    },
+    "Campierganj": {
+      "BDO_Office": "Block Development Office, Campierganj",
+      "Estimated_Contact": "Will need to call district office for Campierganj specific contacts",
+      "Search_Status": "Requires manual verification"
+    },
+    "Chargawan": {
+      "BDO_Office": "Block Development Office, Chargawan",
+      "Estimated_Contact": "Will need to call district office for Chargawan specific contacts",
+      "Search_Status": "Requires manual verification"
+    },
+    "Pipraich": {
+      "BDO_Office": "Block Development Office, Pipraich",
+      "Estimated_Contact": "Will need to call district office for Pipraich specific contacts",
+      "Search_Status": "Requires manual verification"
+    },
+    "Padrauna": {
+      "BDO_Office": "Block Development Office, Padrauna",
+      "Estimated_Contact": "Will need to call district office for Padrauna specific contacts",
+      "Search_Status": "Requires manual verification"
+    },
+    "Kauriram": {
+      "BDO_Office": "Block Development Office, Kauriram",
+      "Estimated_Contact": "Will need to call district office for Kauriram specific contacts",
+      "Search_Status": "Requires manual verification"
+    },
+    "Pharenda": {
+      "BDO_Office": "Block Development Office, Pharenda",
+      "Estimated_Contact": "Will need to call district office for Pharenda specific contacts",
+      "Search_Status": "Requires manual verification"
+    },
+    "Jungle Kaudia": {
+      "BDO_Office": "Block Development Office, Jungle Kaudia",
+      "Estimated_Contact": "Will need to call district office for Jungle Kaudia specific contacts",
+      "Search_Status": "Requires manual verification"
+    },
+    "Nichlaul": {
+      "BDO_Office": "Block Development Office, Nichlaul",
+      "Estimated_Contact": "Will need to call district office for Nichlaul specific contacts",
+      "Search_Status": "Requires manual verification"
+    },
+    "Gagaha": {
+      "BDO_Office": "Block Development Office, Gagaha",
+      "Estimated_Contact": "Will need to call district office for Gagaha specific contacts",
+      "Search_Status": "Requires manual verification"
+    }
+  },
+  "ngo_contacts": {
+    "Research_Required": "Need to search NGO directories, GuideStar India, etc.",
+    "Potential_Sources": [
+      "Credibility Alliance directory",
+      "GiveIndia.org",
+      "NGO directory websites",
+      "Local chamber of commerce"
+    ]
+  },
+  "next_steps": [
+    "Call district collector office for official directory",
+    "Visit government websites for updated contact lists",
+    "Contact local journalists for ground-level contacts",
+    "Reach out to existing contacts in UP for referrals"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "district": "Gorakhpur",
+  "state": "Uttar Pradesh",
+  "research_date": "2025-05-30 00:35:11",
+  "newspaper_contacts": {
+    "https://www.amarujala.com/gorakhpur": "gorakhpur plot no. 21, sector 13,           GIDA gorakhpur  Pin: 273209    ph.: 9675201431"
+  },
+  "government_information_contacts": {
+    "District Information Officer": {
+      "department": "Information & Public Relations Department",
+      "location": "Gorakhpur",
+      "contact_method": "Call District Collector office for current contact",
+      "phone": "0551-2334455",
+      "role": "Coordinates with local media"
+    },
+    "Government Press Reporter": {
+      "department": "UP Information Department",
+      "location": "Gorakhpur Bureau",
+      "contact_method": "Contact through state information dept",
+      "role": "Government news coordination"
+    }
+  },
+  "press_club_information": {
+    "Gorakhpur Press Club": {
+      "type": "Main press club",
+      "location": "Gorakhpur city",
+      "research_method": "Visit in person or call local journalists",
+      "potential_contacts": "President, Secretary of press club",
+      "note": "Press clubs maintain journalist directories"
+    },
+    "District Press Club": {
+      "type": "District level organization",
+      "location": "Near collectorate or court area",
+      "research_method": "Ask district administration for contact"
+    }
+  },
+  "online_portal_contacts": {
+    "gorakhpurnews.com": {
+      "status": "No obvious contact page found",
+      "research_needed": "Direct search or social media check"
+    },
+    "eastmojo.com": {
+      "status": "Has contact page",
+      "research_needed": "Manual check of contact page",
+      "focus": "Look for Gorakhpur/Eastern UP bureau"
+    },
+    "newstrack.com": {
+      "status": "Has contact page",
+      "research_needed": "Manual check of contact page",
+      "focus": "Look for Gorakhpur/Eastern UP bureau"
+    },
+    "patrika.com": {
+      "status": "No obvious contact page found",
+      "research_needed": "Direct search or social media check"
+    }
+  },
+  "manual_research_needed": {
+    "press_club_visit": "Visit Gorakhpur Press Club for member directory",
+    "government_contact": "Call District Information Officer for journalist list",
+    "social_media_search": "Search Facebook/Twitter for Gorakhpur journalists",
+    "direct_calls": "Call newspaper offices directly",
+    "field_research": "Visit newspaper offices in person"
+  },
+  "contact_strategy": [
+    "Call District Collector: 0551-2334455 - Ask for District Information Officer contact",
+    "Visit local newspaper offices in Gorakhpur city",
+    "Contact known journalists for referrals",
+    "Check with local press club for member list",
+    "Search social media for active Gorakhpur journalists"
+  ]
+}
