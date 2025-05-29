@@ -1,0 +1,419 @@
+/* Mobile-First Blog Style for Rural Transformation Documentation */
+/* Usage: Add this to any markdown file: <link rel="stylesheet" href="assets/mobile-blog-style.css"> */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.7;
+    color: #2c3e50;
+    background: #ffffff;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+/* Container for content */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+    background: white;
+    min-height: 100vh;
+}
+
+/* Header styling */
+.header {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    padding: 2rem 1rem;
+    margin: -1rem -1rem 2rem -1rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.header p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+/* Navigation breadcrumbs */
+.breadcrumb {
+    margin-bottom: 2rem;
+    padding: 0.8rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #27ae60;
+}
+
+.breadcrumb a {
+    color: #27ae60;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.breadcrumb a:hover {
+    color: #1e8449;
+    text-decoration: underline;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: #2c3e50;
+    margin: 2rem 0 1rem 0;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    border-bottom: 3px solid #27ae60;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: clamp(1.6rem, 4vw, 2rem);
+    color: #27ae60;
+    margin-top: 2.5rem;
+}
+
+h3 {
+    font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+    color: #34495e;
+}
+
+h4 {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    color: #5d6d7e;
+}
+
+/* Paragraphs and text */
+p {
+    margin: 1rem 0;
+    color: #34495e;
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+}
+
+/* Lists */
+ul, ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+li {
+    margin: 0.5rem 0;
+    color: #34495e;
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+}
+
+/* Links */
+a {
+    color: #27ae60;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: #1e8449;
+    border-bottom-color: #1e8449;
+}
+
+/* Code blocks */
+code {
+    background: #f8f9fa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.9em;
+    color: #e74c3c;
+}
+
+pre {
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+    font-size: clamp(0.85rem, 2.3vw, 1rem);
+}
+
+th {
+    background: #27ae60;
+    color: white;
+    font-weight: 600;
+}
+
+tr:hover {
+    background: #f8f9fa;
+}
+
+/* Blockquotes */
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 4px solid #27ae60;
+    background: #f8fffe;
+    font-style: italic;
+    color: #2c3e50;
+}
+
+/* Cards/Boxes */
+.info-box {
+    background: #e8f8f5;
+    border: 1px solid #27ae60;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.warning-box {
+    background: #fef9e7;
+    border: 1px solid #f39c12;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.tip-box {
+    background: #eaf2f8;
+    border: 1px solid #3498db;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #27ae60;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.btn:hover {
+    background: #1e8449;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+.btn-secondary {
+    background: #95a5a6;
+}
+
+.btn-secondary:hover {
+    background: #7f8c8d;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Horizontal rule */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, #27ae60, transparent);
+    margin: 2rem 0;
+}
+
+/* Footer */
+.footer {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid #e9ecef;
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: #27ae60;
+}
+
+/* Back to top */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #27ae60;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.back-to-top:hover {
+    background: #1e8449;
+    transform: translateY(-2px);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .container {
+        padding: 0.5rem;
+    }
+    
+    .header {
+        margin: -0.5rem -0.5rem 1.5rem -0.5rem;
+        padding: 1.5rem 1rem;
+    }
+    
+    table {
+        font-size: 0.8rem;
+    }
+    
+    th, td {
+        padding: 0.5rem;
+    }
+    
+    .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+    }
+    
+    pre {
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .btn {
+        display: block;
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+}
+
+/* Print styles */
+@media print {
+    .header {
+        background: none !important;
+        color: #2c3e50 !important;
+        box-shadow: none !important;
+    }
+    
+    .back-to-top {
+        display: none;
+    }
+    
+    a {
+        color: #2c3e50 !important;
+        text-decoration: underline !important;
+    }
+    
+    .btn {
+        background: none !important;
+        color: #2c3e50 !important;
+        border: 1px solid #2c3e50 !important;
+    }
+}
+
+/* Responsive typography */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 0.25rem;
+    }
+    
+    .header {
+        margin: -0.25rem -0.25rem 1rem -0.25rem;
+        padding: 1rem 0.5rem;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    body {
+        background: #ffffff;
+        color: #000000;
+    }
+    
+    .header {
+        background: #000000;
+        color: #ffffff;
+    }
+    
+    a {
+        color: #0000ff;
+    }
+    
+    .btn {
+        background: #000000;
+        color: #ffffff;
+        border: 2px solid #000000;
+    }
+}
