@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Village Transformation Journey</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.60.0/phaser.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            overflow: hidden;
+            touch-action: none;
+        }
+        
+        #game-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        
+        #ui-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .timeline-bar {
+            background: linear-gradient(to right, #ff4444 0%, #ffaa00 50%, #44ff44 100%);
+            height: 8px;
+            margin: 10px;
+            border-radius: 4px;
+            position: relative;
+            pointer-events: all;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            top: -8px;
+            transform: translateX(-50%);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            transition: left 0.3s ease;
+        }
+        
+        .stage-labels {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+        
+        .info-panel {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.9);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            pointer-events: all;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+        
+        .info-panel.active {
+            transform: translateY(0);
+        }
+        
+        .player-info {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+        
+        .player-name {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .player-status {
+            display: flex;
+            gap: 20px;
+            margin: 10px 0;
+        }
+        
+        .stat {
+            flex: 1;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+        
+        .stat-value {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .challenges {
+            margin-top: 10px;
+        }
+        
+        .challenge-item {
+            background: rgba(255,0,0,0.2);
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .intervention {
+            background: rgba(255,165,0,0.2);
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .achievement {
+            background: rgba(0,255,0,0.2);
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+        }
+        
+        .control-btn {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .control-btn:active {
+            transform: scale(0.95);
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .legend {
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            background: rgba(0,0,0,0.8);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            pointer-events: all;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 5px 0;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        
+        @media (min-width: 768px) {
+            .info-panel {
+                width: 400px;
+                left: auto;
+                right: 20px;
+                bottom: 20px;
+                border-radius: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="ui-overlay">
+            <div class="timeline-bar">
+                <div class="timeline-marker" id="timeline-marker" style="left: 0%"></div>
+            </div>
+            <div class="stage-labels">
+                <span>BEFORE</span>
+                <span>AI INTERVENTION</span>
+                <span>AFTER</span>
+            </div>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ff4444"></div>
+                    <span>Struggling</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ffaa00"></div>
+                    <span>Transforming</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #44ff44"></div>
+                    <span>Thriving</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-panel" id="info-panel">
+            <!-- Dynamic content will be inserted here -->
+        </div>
+        
+        <div class="controls">
+            <button class="control-btn" id="play-btn">▶</button>
+            <button class="control-btn" id="reset-btn">↺</button>
+        </div>
+    </div>
+
+    <script>
+        // Village Transformation Game
+        class VillageGame extends Phaser.Scene {
+            constructor() {
+                super({ key: 'VillageGame' });
+                this.currentStage = 0; // 0 = Before, 1 = AI Intervention, 2 = After
+                this.selectedPlayer = null;
+                this.playerSprites = {};
+                this.isPlaying = false;
+            }
+
+            preload() {
+                // No external assets needed - using shapes and text
+                console.log('Preload complete');
+            }
+
+            create() {
+                // Set world bounds
+                this.cameras.main.setBackgroundColor('#2a5f3e');
+                
+                // Create village layout
+                this.createVillageLayout();
+                
+                // Add player entities
+                this.createPlayers();
+                
+                // Setup interactions
+                this.setupInteractions();
+                
+                // Timeline control
+                this.setupTimeline();
+            }
+
+            createVillageLayout() {
+                // Create different zones in the village
+                const zones = [
+                    { name: 'Fields', x: 100, y: 100, width: 200, height: 150, color: 0x8b7355 },
+                    { name: 'Market', x: 350, y: 150, width: 150, height: 100, color: 0x708090 },
+                    { name: 'Residential', x: 150, y: 300, width: 250, height: 200, color: 0x8b6914 },
+                    { name: 'Temple', x: 450, y: 300, width: 100, height: 100, color: 0xff6347 },
+                    { name: 'School', x: 50, y: 450, width: 120, height: 80, color: 0x4682b4 }
+                ];
+
+                zones.forEach(zone => {
+                    const rect = this.add.rectangle(zone.x, zone.y, zone.width, zone.height, zone.color, 0.3);
+                    rect.setStrokeStyle(2, zone.color);
+                    
+                    const text = this.add.text(zone.x, zone.y - zone.height/2 - 10, zone.name, {
+                        fontSize: '14px',
+                        color: '#ffffff',
+                        backgroundColor: '#000000',
+                        padding: { x: 5, y: 2 }
+                    });
+                    text.setOrigin(0.5);
+                });
+            }
+
+            createPlayers() {
+                // Player data based on our expanded grammar
+                const players = [
+                    // Farmers
+                    { id: 'marginal_farmer_1', type: 'Marginal Farmer', x: 120, y: 120, zone: 'Fields' },
+                    { id: 'marginal_farmer_2', type: 'Marginal Farmer', x: 180, y: 140, zone: 'Fields' },
+                    { id: 'large_farmer', type: 'Large Farmer', x: 150, y: 100, zone: 'Fields' },
+                    
+                    // Market players
+                    { id: 'shopkeeper', type: 'Shopkeeper', x: 380, y: 180, zone: 'Market' },
+                    { id: 'commission_agent', type: 'Commission Agent', x: 420, y: 170, zone: 'Market' },
+                    { id: 'tea_stall', type: 'Tea Stall Owner', x: 350, y: 200, zone: 'Market' },
+                    
+                    // Service providers
+                    { id: 'mechanic', type: 'Mechanic', x: 200, y: 350, zone: 'Residential' },
+                    { id: 'barber', type: 'Barber', x: 250, y: 380, zone: 'Residential' },
+                    { id: 'asha_worker', type: 'ASHA Worker', x: 300, y: 400, zone: 'Residential' },
+                    
+                    // Social capital holders
+                    { id: 'teacher', type: 'School Teacher', x: 100, y: 480, zone: 'School' },
+                    { id: 'priest', type: 'Priest', x: 480, y: 350, zone: 'Temple' },
+                    
+                    // Youth
+                    { id: 'youth_1', type: 'Rural Youth', x: 180, y: 320, zone: 'Residential' },
+                    { id: 'youth_2', type: 'Rural Youth', x: 220, y: 330, zone: 'Residential' },
+                    
+                    // Women
+                    { id: 'shg_leader', type: 'SHG Leader', x: 320, y: 350, zone: 'Residential' },
+                    { id: 'woman_gardener', type: 'Kitchen Gardener', x: 280, y: 380, zone: 'Residential' }
+                ];
+
+                players.forEach(player => {
+                    this.createPlayerSprite(player);
+                });
+            }
+
+            createPlayerSprite(playerData) {
+                // Create sprite based on player state
+                const colors = {
+                    0: 0xff4444, // Before - Struggling
+                    1: 0xffaa00, // During - Transforming
+                    2: 0x44ff44  // After - Thriving
+                };
+
+                const sprite = this.add.circle(playerData.x, playerData.y, 15, colors[this.currentStage]);
+                sprite.setInteractive();
+                sprite.setStrokeStyle(2, 0xffffff);
+                
+                // Add icon/emoji to represent player type
+                const icon = this.getPlayerIcon(playerData.type);
+                const text = this.add.text(playerData.x, playerData.y, icon, {
+                    fontSize: '16px',
+                    color: '#000000'
+                });
+                text.setOrigin(0.5);
+                
+                // Store reference
+                sprite.playerData = playerData;
+                sprite.icon = text;
+                this.playerSprites[playerData.id] = sprite;
+                
+                // Hover effect
+                sprite.on('pointerover', () => {
+                    sprite.setScale(1.2);
+                    text.setScale(1.2);
+                });
+                
+                sprite.on('pointerout', () => {
+                    sprite.setScale(1);
+                    text.setScale(1);
+                });
+                
+                sprite.on('pointerdown', () => {
+                    this.selectPlayer(playerData);
+                });
+            }
+
+            getPlayerIcon(type) {
+                const icons = {
+                    'Marginal Farmer': '🌾',
+                    'Large Farmer': '🚜',
+                    'Shopkeeper': '🏪',
+                    'Commission Agent': '💰',
+                    'Tea Stall Owner': '☕',
+                    'Mechanic': '🔧',
+                    'Barber': '✂️',
+                    'ASHA Worker': '💊',
+                    'School Teacher': '📚',
+                    'Priest': '🛕',
+                    'Rural Youth': '👦',
+                    'SHG Leader': '👩',
+                    'Kitchen Gardener': '🥬'
+                };
+                return icons[type] || '👤';
+            }
+
+            selectPlayer(playerData) {
+                this.selectedPlayer = playerData;
+                this.updateInfoPanel(playerData);
+            }
+
+            updateInfoPanel(playerData) {
+                const panel = document.getElementById('info-panel');
+                const stageData = this.getPlayerStageData(playerData, this.currentStage);
+                
+                panel.innerHTML = `
+                    <div class="player-info">
+                        <div class="player-name">${playerData.type} ${this.getPlayerIcon(playerData.type)}</div>
+                        <div class="player-status">
+                            <div class="stat">
+                                <div class="stat-label">Income</div>
+                                <div class="stat-value">${stageData.income}</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Debt</div>
+                                <div class="stat-value">${stageData.debt}</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Trust</div>
+                                <div class="stat-value">${stageData.trust}/10</div>
+                            </div>
+                        </div>
+                        
+                        ${this.currentStage === 0 ? `
+                            <div class="challenges">
+                                <strong>Challenges:</strong>
+                                ${stageData.challenges.map(c => `<div class="challenge-item">❌ ${c}</div>`).join('')}
+                            </div>
+                        ` : ''}
+                        
+                        ${this.currentStage === 1 ? `
+                            <div class="interventions">
+                                <strong>AI Interventions:</strong>
+                                ${stageData.interventions.map(i => `<div class="intervention">🤖 ${i}</div>`).join('')}
+                            </div>
+                        ` : ''}
+                        
+                        ${this.currentStage === 2 ? `
+                            <div class="achievements">
+                                <strong>Achievements:</strong>
+                                ${stageData.achievements.map(a => `<div class="achievement">✅ ${a}</div>`).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+                
+                panel.classList.add('active');
+            }
+
+            getPlayerStageData(player, stage) {
+                const data = {
+                    'Marginal Farmer': {
+                        0: {
+                            income: '₹30-60k/year',
+                            debt: '₹2-5 lakhs',
+                            trust: 2,
+                            challenges: [
+                                'High interest debt (3-5% monthly)',
+                                'No collateral for bank loans',
+                                'Dependent on moneylenders',
+                                'Crop failure risk'
+                            ]
+                        },
+                        1: {
+                            income: '₹60-100k/year',
+                            debt: '₹1-3 lakhs',
+                            trust: 5,
+                            interventions: [
+                                'Joined Debt Breaking Circle',
+                                'Collective input purchasing',
+                                'WhatsApp price information',
+                                'Kitchen garden training'
+                            ]
+                        },
+                        2: {
+                            income: '₹1.5-2 lakhs/year',
+                            debt: 'Debt-free',
+                            trust: 8,
+                            achievements: [
+                                'Debt-free status achieved',
+                                'Secondary income established',
+                                'Direct market access',
+                                'Mentoring other farmers'
+                            ]
+                        }
+                    },
+                    'Shopkeeper': {
+                        0: {
+                            income: '₹5-20 lakhs/year',
+                            debt: 'Credit giver',
+                            trust: 4,
+                            challenges: [
+                                'Informal lending risks',
+                                'No digital payments',
+                                'Limited inventory management',
+                                'Political pressure'
+                            ]
+                        },
+                        1: {
+                            income: '₹10-30 lakhs/year',
+                            debt: 'Formal credit',
+                            trust: 6,
+                            interventions: [
+                                'Digital payment integration',
+                                'E-commerce collection point',
+                                'Banking correspondent',
+                                'Inventory management system'
+                            ]
+                        },
+                        2: {
+                            income: '₹20-50 lakhs/year',
+                            debt: 'Credit partner',
+                            trust: 9,
+                            achievements: [
+                                'Community financial hub',
+                                'Supply chain optimizer',
+                                'Digital service center',
+                                'Trusted credit provider'
+                            ]
+                        }
+                    },
+                    'Rural Youth': {
+                        0: {
+                            income: 'Unemployed',
+                            debt: 'Family dependent',
+                            trust: 3,
+                            challenges: [
+                                'No local opportunities',
+                                'Limited skills',
+                                'Migration pressure',
+                                'Digital divide'
+                            ]
+                        },
+                        1: {
+                            income: '₹10-15k/month',
+                            debt: 'Self-supporting',
+                            trust: 6,
+                            interventions: [
+                                'Digital skills training',
+                                'Service provider network',
+                                'Online work opportunities',
+                                'Youth collective formed'
+                            ]
+                        },
+                        2: {
+                            income: '₹20-30k/month',
+                            debt: 'Investor',
+                            trust: 8,
+                            achievements: [
+                                'Digital entrepreneur',
+                                'Local employer',
+                                'Community leader',
+                                'Rural-urban bridge'
+                            ]
+                        }
+                    }
+                };
+                
+                // Return default data for player types not explicitly defined
+                return data[player.type]?.[stage] || {
+                    income: 'Variable',
+                    debt: 'Unknown',
+                    trust: 5,
+                    challenges: ['Limited opportunities', 'Low income'],
+                    interventions: ['Skills training', 'Network building'],
+                    achievements: ['Improved livelihood', 'Community leader']
+                };
+            }
+
+            setupInteractions() {
+                // Touch/click to close info panel when clicking outside
+                this.input.on('pointerdown', (pointer) => {
+                    if (!pointer.downElement || pointer.downElement.tagName === 'CANVAS') {
+                        const panel = document.getElementById('info-panel');
+                        if (!panel.contains(pointer.downElement)) {
+                            panel.classList.remove('active');
+                        }
+                    }
+                });
+            }
+
+            setupTimeline() {
+                const timeline = document.getElementById('timeline-marker');
+                const playBtn = document.getElementById('play-btn');
+                const resetBtn = document.getElementById('reset-btn');
+                
+                playBtn.addEventListener('click', () => {
+                    this.togglePlay();
+                });
+                
+                resetBtn.addEventListener('click', () => {
+                    this.resetTimeline();
+                });
+                
+                // Timeline bar click
+                document.querySelector('.timeline-bar').addEventListener('click', (e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const percentage = x / rect.width;
+                    this.setTimelinePosition(percentage);
+                });
+            }
+
+            togglePlay() {
+                this.isPlaying = !this.isPlaying;
+                const playBtn = document.getElementById('play-btn');
+                playBtn.textContent = this.isPlaying ? '⏸' : '▶';
+                
+                if (this.isPlaying) {
+                    this.playAnimation();
+                }
+            }
+
+            playAnimation() {
+                if (!this.isPlaying) return;
+                
+                const duration = 3000; // 3 seconds per stage
+                const startTime = Date.now();
+                const startStage = this.currentStage;
+                
+                const animate = () => {
+                    if (!this.isPlaying) return;
+                    
+                    const elapsed = Date.now() - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    if (progress === 1) {
+                        if (this.currentStage < 2) {
+                            this.setStage(this.currentStage + 1);
+                            this.playAnimation(); // Continue to next stage
+                        } else {
+                            this.isPlaying = false;
+                            document.getElementById('play-btn').textContent = '▶';
+                        }
+                    } else {
+                        requestAnimationFrame(animate);
+                    }
+                };
+                
+                animate();
+            }
+
+            resetTimeline() {
+                this.isPlaying = false;
+                document.getElementById('play-btn').textContent = '▶';
+                this.setStage(0);
+                this.setTimelinePosition(0);
+            }
+
+            setTimelinePosition(percentage) {
+                const timeline = document.getElementById('timeline-marker');
+                timeline.style.left = `${percentage * 100}%`;
+                
+                // Determine stage based on position
+                const newStage = percentage < 0.33 ? 0 : percentage < 0.66 ? 1 : 2;
+                if (newStage !== this.currentStage) {
+                    this.setStage(newStage);
+                }
+            }
+
+            setStage(stage) {
+                this.currentStage = stage;
+                
+                // Update timeline position
+                const positions = [0, 0.5, 1];
+                const timeline = document.getElementById('timeline-marker');
+                timeline.style.left = `${positions[stage] * 100}%`;
+                
+                // Update all player sprites
+                const colors = [0xff4444, 0xffaa00, 0x44ff44];
+                Object.values(this.playerSprites).forEach(sprite => {
+                    sprite.setFillStyle(colors[stage]);
+                    
+                    // Add animation
+                    this.tweens.add({
+                        targets: sprite,
+                        scaleX: 1.3,
+                        scaleY: 1.3,
+                        duration: 200,
+                        yoyo: true
+                    });
+                });
+                
+                // Update info panel if player selected
+                if (this.selectedPlayer) {
+                    this.updateInfoPanel(this.selectedPlayer);
+                }
+                
+                // Add floating text to show transformations
+                if (stage === 1) {
+                    this.showTransformationText();
+                } else if (stage === 2) {
+                    this.showSuccessText();
+                }
+            }
+
+            showTransformationText() {
+                const texts = [
+                    { x: 150, y: 100, text: 'Forming FPO' },
+                    { x: 380, y: 160, text: 'Going Digital' },
+                    { x: 250, y: 350, text: 'Skills Training' }
+                ];
+                
+                texts.forEach(t => {
+                    const text = this.add.text(t.x, t.y, t.text, {
+                        fontSize: '14px',
+                        color: '#ffaa00',
+                        backgroundColor: '#000000',
+                        padding: { x: 5, y: 2 }
+                    });
+                    text.setOrigin(0.5);
+                    
+                    this.tweens.add({
+                        targets: text,
+                        y: t.y - 20,
+                        alpha: 0,
+                        duration: 2000,
+                        onComplete: () => text.destroy()
+                    });
+                });
+            }
+
+            showSuccessText() {
+                const texts = [
+                    { x: 150, y: 100, text: '+₹1L Income!' },
+                    { x: 380, y: 160, text: '2x Revenue!' },
+                    { x: 250, y: 350, text: 'Jobs Created!' }
+                ];
+                
+                texts.forEach(t => {
+                    const text = this.add.text(t.x, t.y, t.text, {
+                        fontSize: '16px',
+                        color: '#44ff44',
+                        backgroundColor: '#000000',
+                        padding: { x: 5, y: 2 }
+                    });
+                    text.setOrigin(0.5);
+                    
+                    this.tweens.add({
+                        targets: text,
+                        y: t.y - 30,
+                        scale: 1.2,
+                        duration: 1000,
+                        yoyo: true,
+                        repeat: 1
+                    });
+                });
+            }
+        }
+
+        // Initialize Phaser game
+        const config = {
+            type: Phaser.AUTO,
+            parent: 'game-container',
+            width: window.innerWidth,
+            height: window.innerHeight,
+            scene: VillageGame,
+            backgroundColor: '#2a5f3e',
+            scale: {
+                mode: Phaser.Scale.RESIZE,
+                autoCenter: Phaser.Scale.CENTER_BOTH
+            }
+        };
+
+        const game = new Phaser.Game(config);
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            game.scale.resize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
