@@ -1,4 +1,4 @@
-# Technical Architecture for Social Collaboration Framework
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Technical Architecture for Social Collaboration Framework
 
 ## System Overview
 

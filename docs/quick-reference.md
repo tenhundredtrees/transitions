@@ -1,4 +1,4 @@
-# Quick Reference Guide: Social Collaboration Framework
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Quick Reference Guide: Social Collaboration Framework
 
 ## Framework at a Glance
 

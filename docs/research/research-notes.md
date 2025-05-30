@@ -1,4 +1,4 @@
-# Deep Research: India District Mapping & Dashboard Framework
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Deep Research: India District Mapping & Dashboard Framework
 
 ## India Administrative Structure Research
 

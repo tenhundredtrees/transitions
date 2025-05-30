@@ -1,4 +1,4 @@
-# Kaithal District: Immediate Action Plan (Next 30 Days)
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Kaithal District: Immediate Action Plan (Next 30 Days)
 
 ## 🚀 Phase 0: Pre-Entry Intelligence & Relationship Building
 

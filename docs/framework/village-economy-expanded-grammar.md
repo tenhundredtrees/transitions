@@ -1,4 +1,4 @@
-# Expanded Grammar of Village Economy: Real Players and Their Nuanced Ecosystem
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Expanded Grammar of Village Economy: Real Players and Their Nuanced Ecosystem
 
 > *A comprehensive mapping of actual village actors, their economic niches, social capital, and transformation pathways*
 

@@ -1,4 +1,4 @@
-# Kaithal District Social Mapping & Strategic Entry Analysis
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Kaithal District Social Mapping & Strategic Entry Analysis
 
 ## 🎯 Research Methodology: Social Grammar Approach
 

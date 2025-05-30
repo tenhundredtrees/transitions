@@ -1,4 +1,4 @@
-# Implementation Guide: Getting Started with Social Collaboration Framework
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Implementation Guide: Getting Started with Social Collaboration Framework
 
 ## Pre-Implementation Assessment
 

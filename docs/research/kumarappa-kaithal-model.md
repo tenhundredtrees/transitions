@@ -1,4 +1,4 @@
-# Kumarappa's Kaithal: Economy of Permanence for District Self-Sufficiency 🌾
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Kumarappa's Kaithal: Economy of Permanence for District Self-Sufficiency 🌾
 
 > *Reimagining our framework through J.C. Kumarappa's vision of cooperative, sustainable rural economy*
 

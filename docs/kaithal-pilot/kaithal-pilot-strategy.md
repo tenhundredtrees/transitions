@@ -1,4 +1,4 @@
-# Kaithal District Pilot: Virtual Member Strategy
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Kaithal District Pilot: Virtual Member Strategy
 
 ## Mission: Becoming Kaithal's Digital Citizen
 

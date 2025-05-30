@@ -1,4 +1,4 @@
-# Kaithal District Current Research & Data Collection
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Kaithal District Current Research & Data Collection
 
 ## 🔍 Research Strategy Using Alternative Search Methods
 

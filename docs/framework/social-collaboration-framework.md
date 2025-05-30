@@ -1,4 +1,4 @@
-# Decentralized District Governance & Social Collaboration Framework
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Decentralized District Governance & Social Collaboration Framework
 
 ## Core Philosophy
 

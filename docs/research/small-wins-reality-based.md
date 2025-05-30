@@ -1,4 +1,4 @@
-# Small Wins Reality Check: When Villages Have Lost Hope 💔
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Small Wins Reality Check: When Villages Have Lost Hope 💔
 
 > *Addressing the harsh truth: People lack confidence and resources. They see "techbro solutions" as irrelevant. What really works when trust is broken and survival is the priority?*
 

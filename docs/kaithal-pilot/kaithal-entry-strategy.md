@@ -1,4 +1,4 @@
-# Kaithal District Entry Strategy: From Social Grammar to Action
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Kaithal District Entry Strategy: From Social Grammar to Action
 
 ## 🎯 Strategic Framework: Social Grammar → Action → Outcomes
 

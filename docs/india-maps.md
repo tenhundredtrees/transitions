@@ -1,4 +1,4 @@
-# India Maps & District Boundaries 🗺️
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># India Maps & District Boundaries 🗺️
 
 > *Geographic foundation for district-wise collaboration platform covering all 766 districts*
 

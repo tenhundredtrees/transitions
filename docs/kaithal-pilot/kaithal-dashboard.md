@@ -1,4 +1,4 @@
-# Kaithal District Dashboard 📊
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Kaithal District Dashboard 📊
 
 > *Live pilot implementation of Social Collaboration Framework in Haryana's agricultural hub*
 

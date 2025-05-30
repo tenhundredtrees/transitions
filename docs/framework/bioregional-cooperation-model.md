@@ -1,4 +1,4 @@
-# Bioregional Cooperation Model: Village Needs & Regional Resilience
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Bioregional Cooperation Model: Village Needs & Regional Resilience
 
 ## Foundational Village Needs Analysis
 

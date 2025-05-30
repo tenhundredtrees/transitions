@@ -1,4 +1,4 @@
-# Practical Use Cases: Social Collaboration Framework in Action
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Practical Use Cases: Social Collaboration Framework in Action
 
 ## Case Study 1: Integrated Agricultural Value Chain
 

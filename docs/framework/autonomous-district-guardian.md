@@ -1,4 +1,4 @@
-# Autonomous District Guardian: Self-Sustaining Governance System
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Autonomous District Guardian: Self-Sustaining Governance System
 
 ## Vision: District-Level Digital Guardian
 

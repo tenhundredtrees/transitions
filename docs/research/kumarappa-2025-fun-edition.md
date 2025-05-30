@@ -1,4 +1,4 @@
-# Kumarappa 2025: Making Cooperative Economics Fun & Viral 🔥
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Kumarappa 2025: Making Cooperative Economics Fun & Viral 🔥
 
 > *How to make village self-sufficiency the coolest thing since smartphones*
 

@@ -1,4 +1,4 @@
-# Kaithal Real Players Discovery: Multi-Lens Data Crawling Strategy
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Kaithal Real Players Discovery: Multi-Lens Data Crawling Strategy
 
 ## 🎯 Philosophy: Bottom-Up Social Asset Mapping
 

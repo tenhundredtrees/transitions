@@ -1,4 +1,4 @@
-# Small Wins: Weaving Social Fabric Through Proven Strategies 🧵
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Small Wins: Weaving Social Fabric Through Proven Strategies 🧵
 
 > *Learning from global examples, literature, and films to identify repeatable, rigorously doable strategies for a digital citizen to build social capital in rural districts*
 

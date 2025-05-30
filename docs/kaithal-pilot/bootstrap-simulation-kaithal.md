@@ -1,4 +1,4 @@
-# Bootstrap Simulation: Kaithal Cooperative-Permaculture Launch 🚀
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Bootstrap Simulation: Kaithal Cooperative-Permaculture Launch 🚀
 
 > *Real-world simulation: How to actually start and scale cooperative permaculture with limited resources and connections*
 

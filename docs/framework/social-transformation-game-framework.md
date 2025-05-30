@@ -1,4 +1,4 @@
-# Social Transformation Game Framework: Player Types to Goal States
+<link rel="stylesheet" href="../assets/mobile-blog-style.css"># Social Transformation Game Framework: Player Types to Goal States
 
 > *A systematic mapping of social actors, their transformation paths, challenges, solutions, and intervention feasibility scoring*
 
