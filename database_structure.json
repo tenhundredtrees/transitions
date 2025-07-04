@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "created": "2024-01-01",
+    "version": "1.0",
+    "description": "Indian Journalists Database Structure",
+    "total_districts": 0,
+    "total_journalists": 0
+  },
+  "states": {
+    "state_name": {
+      "state_code": "XX",
+      "districts": {
+        "district_name": {
+          "district_code": "XXX",
+          "population": 0,
+          "media_hubs": [],
+          "journalist_organizations": [
+            {
+              "name": "Organization Name",
+              "type": "club|union|association|guild",
+              "address": "Full Address",
+              "contact_person": "Contact Person Name",
+              "phone": "Phone Number",
+              "email": "email@domain.com",
+              "website": "https://website.com",
+              "established": "YYYY",
+              "membership_count": 0
+            }
+          ],
+          "journalists": [
+            {
+              "id": "unique_id",
+              "name": "Full Name",
+              "designation": "Current Designation",
+              "organization": "Current Organization",
+              "beat": "primary_beat",
+              "specializations": ["beat1", "beat2"],
+              "experience_years": 0,
+              "languages": ["language1", "language2"],
+              "contact": {
+                "email": "email@domain.com",
+                "phone": "Phone Number",
+                "mobile": "Mobile Number",
+                "office_address": "Office Address",
+                "social_media": {
+                  "twitter": "@handle",
+                  "linkedin": "linkedin_url",
+                  "facebook": "facebook_url"
+                }
+              },
+              "education": "Educational Background",
+              "awards": ["award1", "award2"],
+              "publications": ["publication1", "publication2"],
+              "is_active": true,
+              "last_updated": "YYYY-MM-DD"
+            }
+          ],
+          "media_outlets": [
+            {
+              "name": "Outlet Name",
+              "type": "newspaper|magazine|tv|radio|digital",
+              "language": "primary_language",
+              "address": "Office Address",
+              "contact": {
+                "phone": "Phone Number",
+                "email": "email@domain.com",
+                "website": "https://website.com"
+              },
+              "circulation": "circulation_info",
+              "established": "YYYY"
+            }
+          ],
+          "press_clubs": [
+            {
+              "name": "Press Club Name",
+              "address": "Full Address",
+              "contact": {
+                "phone": "Phone Number",
+                "email": "email@domain.com"
+              },
+              "membership_fee": "fee_amount",
+              "facilities": ["facility1", "facility2"]
+            }
+          ]
+        }
+      }
+    }
+  }
+} 

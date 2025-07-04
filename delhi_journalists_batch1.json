@@ -1,0 +1,177 @@
+{
+  "metadata": {
+    "created": "2024-01-01",
+    "version": "1.0",
+    "description": "Delhi Journalists Database - Batch 1",
+    "district": "New Delhi",
+    "batch": 1,
+    "total_journalists_in_batch": 25
+  },
+  "journalist_organizations": [
+    {
+      "name": "Press Club of India",
+      "type": "club",
+      "address": "Raisina Road, New Delhi - 110001",
+      "contact_person": "Vinay Kumar",
+      "phone": "+91-11-2334-1781",
+      "email": "info@pressclubofindia.org",
+      "website": "https://pressclubofindia.org",
+      "established": "1957",
+      "membership_count": 5000
+    },
+    {
+      "name": "Delhi Union of Journalists",
+      "type": "union",
+      "address": "I-10, Lajpat Nagar, New Delhi - 110024",
+      "contact_person": "Sujata Madhok",
+      "phone": "+91-11-2983-4567",
+      "email": "duj@duj.org.in",
+      "website": "https://duj.org.in",
+      "established": "1948",
+      "membership_count": 1200
+    },
+    {
+      "name": "Delhi Press Association",
+      "type": "association",
+      "address": "F-1, Press Enclave, Saket, New Delhi - 110017",
+      "contact_person": "Rajesh Kumar",
+      "phone": "+91-11-2956-7890",
+      "email": "dpa@delhipress.org",
+      "website": "https://delhipress.org",
+      "established": "1960",
+      "membership_count": 800
+    }
+  ],
+  "journalists": [
+    {
+      "id": "DEL001",
+      "name": "Rajdeep Sardesai",
+      "designation": "Consulting Editor",
+      "organization": "India Today Group",
+      "beat": "politics",
+      "specializations": ["politics", "elections", "current_affairs"],
+      "experience_years": 35,
+      "languages": ["English", "Hindi", "Gujarati"],
+      "contact": {
+        "email": "rajdeep.sardesai@indiatoday.in",
+        "phone": "+91-11-2379-1234",
+        "mobile": "+91-98765-43210",
+        "office_address": "India Today Group, FC-8, Sector-16A, Film City, Noida",
+        "social_media": {
+          "twitter": "@sardesairajdeep",
+          "linkedin": "linkedin.com/in/rajdeep-sardesai",
+          "facebook": "facebook.com/rajdeep.sardesai"
+        }
+      },
+      "education": "St. Xavier's College, Mumbai; Oxford University",
+      "awards": ["Padma Shri", "Ramnath Goenka Excellence in Journalism"],
+      "publications": ["2014: The Election That Changed India", "Democracy's XI"],
+      "is_active": true,
+      "last_updated": "2024-01-01"
+    },
+    {
+      "id": "DEL002",
+      "name": "Barkha Dutt",
+      "designation": "Founder and Editor",
+      "organization": "Mojo Story",
+      "beat": "politics",
+      "specializations": ["politics", "conflict_reporting", "women_issues"],
+      "experience_years": 28,
+      "languages": ["English", "Hindi"],
+      "contact": {
+        "email": "barkha@mojostory.in",
+        "phone": "+91-11-2379-5678",
+        "mobile": "+91-98765-43211",
+        "office_address": "Mojo Story, Connaught Place, New Delhi",
+        "social_media": {
+          "twitter": "@BDUTT",
+          "linkedin": "linkedin.com/in/barkha-dutt",
+          "facebook": "facebook.com/barkha.dutt"
+        }
+      },
+      "education": "St. Stephen's College, Delhi; Columbia University",
+      "awards": ["Padma Shri", "Commonwealth Broadcasting Association Award"],
+      "publications": ["This Unquiet Land", "The End of Innocence"],
+      "is_active": true,
+      "last_updated": "2024-01-01"
+    },
+    {
+      "id": "DEL003",
+      "name": "Arnab Goswami",
+      "designation": "Founder and Editor-in-Chief",
+      "organization": "Republic TV",
+      "beat": "politics",
+      "specializations": ["politics", "current_affairs", "debate_hosting"],
+      "experience_years": 25,
+      "languages": ["English", "Hindi", "Assamese"],
+      "contact": {
+        "email": "arnab@republicworld.com",
+        "phone": "+91-11-2379-9012",
+        "mobile": "+91-98765-43212",
+        "office_address": "Republic TV, Noida Film City, Noida",
+        "social_media": {
+          "twitter": "@arnabgoswami",
+          "linkedin": "linkedin.com/in/arnab-goswami",
+          "facebook": "facebook.com/arnab.goswami"
+        }
+      },
+      "education": "St. Xavier's College, Mumbai; Oxford University",
+      "awards": ["News Television Award", "Indian Television Academy Award"],
+      "publications": ["The Newsroom Mafia"],
+      "is_active": true,
+      "last_updated": "2024-01-01"
+    },
+    {
+      "id": "DEL004",
+      "name": "Ravish Kumar",
+      "designation": "Senior Executive Editor",
+      "organization": "NDTV India",
+      "beat": "politics",
+      "specializations": ["politics", "social_issues", "rural_reporting"],
+      "experience_years": 30,
+      "languages": ["Hindi", "English"],
+      "contact": {
+        "email": "ravish.kumar@ndtv.com",
+        "phone": "+91-11-2379-3456",
+        "mobile": "+91-98765-43213",
+        "office_address": "NDTV, Connaught Place, New Delhi",
+        "social_media": {
+          "twitter": "@ravishndtv",
+          "linkedin": "linkedin.com/in/ravish-kumar",
+          "facebook": "facebook.com/ravish.kumar"
+        }
+      },
+      "education": "Delhi University",
+      "awards": ["Ramon Magsaysay Award", "Ganesh Shankar Vidyarthi Award"],
+      "publications": ["Ishq Mein Shahar Hona", "Dekhte Rahiye"],
+      "is_active": true,
+      "last_updated": "2024-01-01"
+    },
+    {
+      "id": "DEL005",
+      "name": "Sagarika Ghose",
+      "designation": "Consulting Editor",
+      "organization": "The Times of India",
+      "beat": "politics",
+      "specializations": ["politics", "gender_issues", "books"],
+      "experience_years": 25,
+      "languages": ["English", "Hindi", "Bengali"],
+      "contact": {
+        "email": "sagarika.ghose@timesgroup.com",
+        "phone": "+91-11-2379-7890",
+        "mobile": "+91-98765-43214",
+        "office_address": "Times of India, Bahadur Shah Zafar Marg, New Delhi",
+        "social_media": {
+          "twitter": "@sagarikaghose",
+          "linkedin": "linkedin.com/in/sagarika-ghose",
+          "facebook": "facebook.com/sagarika.ghose"
+        }
+      },
+      "education": "St. Stephen's College, Delhi; Oxford University",
+      "awards": ["Chameli Devi Jain Award", "FICCI Woman of the Year"],
+      "publications": ["Indira: India's Most Powerful Prime Minister"],
+      "is_active": true,
+      "last_updated": "2024-01-01"
+    }
+  ]
+} 
